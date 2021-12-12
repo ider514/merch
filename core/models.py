@@ -6,6 +6,7 @@ from django.db import models
 from django.db.models import Sum
 from django.shortcuts import reverse
 from django_countries.fields import CountryField
+from django.contrib.auth.models import AbstractUser
 import uuid
 
 
@@ -38,15 +39,9 @@ class Carousel(models.Model):
     def __str__(self):
         return self.title
 
-
-class UserProfile(models.Model):
-    user = models.OneToOneField(
-        settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-        
-    #address
-
-    def __str__(self):
-        return self.user.username
+class MyUser(AbstractUser):
+    identifier = models.CharField(max_length=40, unique=True)
+    USERNAME_FIELD = 'identifier'
         
 class Size(models.Model):
     size = models.CharField(choices=SIZE_CHOICES, max_length=2)

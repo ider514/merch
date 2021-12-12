@@ -130,8 +130,8 @@ ACCOUNT_FORMS = {
     "reset_password_from_key": "allauth.account.forms.ResetPasswordKeyForm",
     "disconnect": "allauth.socialaccount.forms.DisconnectForm",
     # Use our custom signup form
-    "signup": "core.forms.MiruskincareSignupForm",
-    "login": "core.forms.MiruskincareLoginForm",
+    "signup": "core.forms.merchSignupForm",
+    "login": "core.forms.merchLoginForm",
 }
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
@@ -140,3 +140,6 @@ EMAIL_USE_TLS = True
 EMAIL_PORT = 587
 EMAIL_HOST_USER = 'mirubackend@gmail.com'
 EMAIL_HOST_PASSWORD = 'MiruDjango0514'
+
+
+AUTH_USER_MODEL = 'core.MyUser'

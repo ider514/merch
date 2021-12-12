@@ -1,9 +1,9 @@
 from .base import *
 
-ROOT_URLCONF = 'miruskincare.urls'
+ROOT_URLCONF = 'merch.urls'
 
 DEBUG = True
-ALLOWED_HOSTS = ['ip-address', 'miruskincare.com', 'miruskincare.mn',
+ALLOWED_HOSTS = ['ip-address', 'merch.com', 'merch.mn',
                  'ider0514.pythonanywhere.com', '127.0.0.1', '3.37.244.33']
 
 AUTH_PASSWORD_VALIDATORS = [
@@ -16,10 +16,10 @@ AUTH_PASSWORD_VALIDATORS = [
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': 'db_name',
-        # 'NAME': '/opt/bitnami/projects/miruskincare/db_name',
-        'USER': 'db_user',
-        'PASSWORD': '123',
+        'NAME': 'database',
+        # 'NAME': '/opt/bitnami/projects/merch/db_name',
+        'USER': 'super',
+        'PASSWORD': 'merchstore',
         'HOST': '',
         'PORT': ''
     }

@@ -36,7 +36,7 @@ DELIVERY = [
 # SpyBookSignupForm inherits from django-allauth's SignupForm
 
 
-class MiruskincareLoginForm(LoginForm):
+class merchLoginForm(LoginForm):
     def __init__(self, *args, **kwargs):
         # Call the init of the parent class
         super().__init__(*args, **kwargs)
@@ -63,7 +63,7 @@ class MiruskincareLoginForm(LoginForm):
             del self.fields["remember"]
 
 
-class MiruskincareSignupForm(SignupForm):
+class merchSignupForm(SignupForm):
 
     # Override the init method
     def __init__(self, *args, **kwargs):

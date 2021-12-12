@@ -14,7 +14,7 @@ from django.utils import timezone
 from django.views.generic import ListView, DetailView, View
 
 from .forms import CheckoutForm, CouponForm, RefundForm, PaymentForm
-from .models import Item, OrderItem, Order, Address, Payment, Coupon, Refund, UserProfile, Carousel
+from .models import Item, OrderItem, Order, Address, Payment, Coupon, Refund, MyUser, Carousel
 
 # stripe.api_key = settings.STRIPE_SECRET_KEY
 
