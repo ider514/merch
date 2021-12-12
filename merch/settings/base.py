@@ -39,7 +39,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'miruskincare.urls'
+ROOT_URLCONF = 'merch.urls'
 
 TEMPLATES = [
     {
@@ -57,7 +57,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'miruskincare.wsgi.application'
+WSGI_APPLICATION = 'merch.wsgi.application'
 
 LANGUAGE_CODE = 'en-us'
 TIME_ZONE = 'UTC'

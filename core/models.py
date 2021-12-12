@@ -16,23 +16,15 @@ DELIVERY_B = 5500
 CATEGORY_CHOICES = (
     ('CH', 'Чийгшүүлэгч тос'),
     ('TS', 'Цэвэрлэгч'),
-    ('TO', 'Тонер'),
-    ('NT', 'Нарны тос'),
-    ('HE', 'Хөгшрөлтийн эсрэг'),
-    ('GU', 'Гуужуулагч'),
-    ('ES', 'Эссэнц'),
-    ('SE', 'Серум'),
-    ('UA', 'Үс арчилгаа'),
-    ('BA', 'Бие арчилгаа'),
-    ('MA', 'Маск'),
-    ('NB', 'Нүүрний будаг'),
-    ('ZT', 'Зовхины тос'),
+    ('TO', 'Тонер')
 )
 
-LABEL_CHOICES = (
-    ('P', 'primary'),
-    ('S', 'secondary'),
-    ('D', 'danger')
+SIZE_CHOICES = (
+    ('XS', 'Extra Small'),
+    ('S', 'Small'),
+    ('M', 'Medium'),
+    ('L', 'Large'),
+    ('XL', 'Extra Large')
 )
 
 
@@ -50,24 +42,28 @@ class Carousel(models.Model):
 class UserProfile(models.Model):
     user = models.OneToOneField(
         settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-    stripe_customer_id = models.CharField(max_length=50, blank=True, null=True)
-    one_click_purchasing = models.BooleanField(default=False)
+        
+    #address
 
     def __str__(self):
         return self.user.username
+        
+class Size(models.Model):
+    size = models.CharField(choices=SIZE_CHOICES, max_length=2)
 
 
 class Item(models.Model):
     title = models.CharField(max_length=100)
-    price = models.FloatField()
-    discount_price = models.FloatField(blank=True, null=True)
-    stock_amount = models.IntegerField(null=False)
-    category = models.CharField(choices=CATEGORY_CHOICES, max_length=2)
-    label = models.CharField(choices=LABEL_CHOICES, max_length=1)
-    slug = models.SlugField()
+    # brand
+    size = models.ManyToManyField(Size)
     description = models.TextField()
     image = models.ImageField()
-    sold_out = models.BooleanField(default=False)
+    price = models.FloatField()
+    discount_price = models.FloatField(blank=True, null=True)
+    category = models.CharField(choices=CATEGORY_CHOICES, max_length=2)
+
+    stock_amount = models.IntegerField(null=False)
+    slug = models.SlugField()
     special = models.BooleanField(default=False)
 
     def __str__(self):
